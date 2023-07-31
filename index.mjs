@@ -8,7 +8,6 @@ const proLabore = document.getElementById('proLabore')
 const salarioBrutoMensal = document.getElementById('salarioBrutoMensal')
 
 receitaMensal.addEventListener('keydown', (e) => {
-    console.log(e.key)
     if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', ',', 'Backspace', 'Delete',
         'ArrowRight', 'ArrowLeft'].includes(e.key)) {
         e.preventDefault();
