@@ -949,3 +949,14 @@ input[type=number] {
     gap: 9rem;
   }
 }
+
+
+@media (min-width: 1024px) {
+  #formulario {
+    justify-self: start !important;
+  }
+}
+
+#imagem-contador {
+  justify-self: center !important;
+}

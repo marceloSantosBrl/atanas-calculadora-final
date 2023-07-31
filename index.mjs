@@ -8,23 +8,20 @@ const proLabore = document.getElementById('proLabore')
 const salarioBrutoMensal = document.getElementById('salarioBrutoMensal')
 
 receitaMensal.addEventListener('keydown', (e) => {
-    if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', ',', 'Backspace', 'Delete',
-        'ArrowRight', 'ArrowLeft'].includes(e.key)) {
+    if ([' '].includes(e.key)) {
         e.preventDefault();
     }
 })
 
 
 proLabore.addEventListener('keydown', (e) => {
-    if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', ',', 'Backspace', 'Delete',
-        'ArrowRight', 'ArrowLeft'].includes(e.key)) {
+    if ([' '].includes(e.key)) {
         e.preventDefault();
     }
 })
 
 salarioBrutoMensal.addEventListener('keydown', (e) => {
-    if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', ',', 'Backspace', 'Delete',
-        'ArrowRight', 'ArrowLeft'].includes(e.key)) {
+    if ([' '].includes(e.key)) {
         e.preventDefault();
     }
 })
