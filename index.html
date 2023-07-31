@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cassio Contabilidade</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="output.css"/>
+    <script src="index.mjs" type="module" defer></script>
+    <link rel="shortcut icon" href="https://saude.cassiocontabilidade.com/wp-content/uploads/2022/12/89741-1536x1536.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<header class="bg-yellow-well flex flex-wrap justify-around w-100 h-12">
+    <div class="flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill"
+             viewBox="0 0 16 16">
+            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+        </svg>
+        <p class="self-center">comercial@cassiocontabilidade.com</p>
+    </div>
+    <div class="flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill"
+             viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                  d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+        </svg>
+        <p class="self-center">(74)99104-4265</p>
+    </div>
+</header>
+
+<div
+        class="bg-white flex justify-between flex-wrap w-100 p-3 h-auto shadow-well items-center"
+>
+    <div class="text-xl w-full lg:w-auto text-center flex items-center gap-1 justify-center lg:justify-start">
+        <img
+                class="w-12"
+                src="https://saude.cassiocontabilidade.com/wp-content/uploads/2022/12/89741-1536x1536.png" alt="">
+        <h2>Cassio Nunes Contabilidade</h2>
+    </div>
+    <div class="flex gap-4 w-full lg:w-auto justify-center">
+        <button
+              href=""  class="border-2 rounded-md p-1 w-16 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-amber-50"
+        >
+            INSS
+        </button>
+        <button
+                class="border-2 rounded-md p-1 w-16 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-amber-50"
+        >
+            Início
+        </button>
+    </div>
+</div>
+
+<article class="w-full flex justify-center flex-wrap mt-12">
+    <h1 class="w-auto text-5xl text-center">Simulador de Impostos</h1>
+    <section class="w-full flex justify-center">
+        <h2 class="text-2xl mt-4">Digite os Valores abaixo:</h2>
+    </section>
+</article>
+
+
+<!--    Formulário e Imagem-->
+
+<article class="flex flex-col justify-center
+    lg:grid grid-cols-2 lg:mt-10 lg:gap-32 mr-7">
+    <img class="hidden w-52 lg:block justify-self-end"
+         src="https://contadr.com.br/wp-content/uploads/2021/05/Caculadora-INSS.png" alt="">
+    <form
+            id="formulario"
+            class="fflex items-center flex-col gap-5">
+        <div class="flex flex-col items-center gap-2">
+            <label class="text-center" for="receitaMensal"
+            >Valor que recebo no mês</label
+            >
+            <div class="flex">
+                <span class="input-group-sub-element">R$</span>
+                <input
+                        class="w-72 border-2 border-opacity-50 border-gray-400 rounded-e-md" type="number"
+                        id="receitaMensal"
+                        name="receitaMensal"
+                        placeholder=" 0,00"
+                        required/>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-2 mt-3">
+            <label class="text-center" for="proLabore"
+            >Valor pago aos funcionários</label
+            >
+            <div class="flex">
+                <span class="input-group-sub-element">R$</span>
+                <input class="w-72 border-2 border-opacity-50 border-gray-400 rounded-e-md" type="number"
+                       id="proLabore"
+                       name="proLabore"
+                       placeholder=" 0,00"
+                       required/>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-2 mt-3">
+            <label for="salarioBrutoMensal" class="text-center"
+            >Valor de retirada obrigatória com INSS da empresa</label
+            >
+            <div class="flex">
+                <span class="input-group-sub-element">R$</span>
+                <input class="w-72 gap-2 border-2 border-opacity-50 border-gray-400 rounded-e-md" type="number"
+                       id="salarioBrutoMensal"
+                       name="salarioBrutoMensal"
+                       placeholder=" 0,00"
+                       required/>
+            </div>
+        </div>
+        <div class="flex w-full lg:w-6/12 justify-center pt-1 ml-9">
+            <button
+                    class="border-2 rounded-md w-28 p-1 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-amber-50">
+                <!--            class="border-2 rounded-md w-28 p-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-amber-50 text-xl"-->
+                Enviar
+            </button>
+        </div>
+    </form>
+</article>
+
+<!-- container cards -->
+
+<article class="flex flex-col items-center mt-8
+    lg:grid lg:grid-cols-2 lg:gap-3 lg:justify-items-center">
+    <!-- card1 -->
+
+    <section class="w-11/12
+      lg:col-start-1">
+        <div
+                class="flex justify-center rounded-tr-xl rounded-tl-xl bg-yellow-well text-xl p-1"
+        >
+            <h3>Pessoa Física</h3>
+        </div>
+        <div class="grid grid-cols-12 border-2 rounded-b-xl border-yellow-500">
+            <div class="col-span-12 flex justify-center p-2">
+                <h4 id="pfValorTotal">R$ 0/mês</h4>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="pfInssPatronal">R$ 0</p>
+                <p>INSS patronal</p>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="pfInss">R$ 0</p>
+                <p>INSS</p>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="pfImposto">R$ 0</p>
+                <p>Imposto</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- card 2 -->
+
+    <section class="w-11/12 mt-3
+      lg:col-start-2 lg:mt-0">
+        <div
+                class="flex justify-center rounded-tr-xl rounded-tl-xl bg-yellow-well text-xl p-1"
+        >
+            <h3>Simples Anexo III 28%</h3>
+        </div>
+        <div class="grid grid-cols-12 border-2 border-yellow-500 rounded-b-xl">
+            <div class="col-span-12 flex justify-center p-2">
+                <h4 id="a3ValorTotal">R$ 0/mês</h4>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="a3InssPatronal">R$ 0</p>
+                <p>INSS patronal</p>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="a3Inss">R$ 0</p>
+                <p>INSS</p>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="a3Imposto">R$ 0</p>
+                <p>Imposto</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- card3 -->
+
+    <section class="w-11/12 mt-3
+      lg:col-start-1 lg:mt-0">
+        <div
+                class="flex justify-center rounded-tr-xl rounded-tl-xl bg-yellow-well text-xl p-1"
+        >
+            <h3>Lucro Presumido</h3>
+        </div>
+        <div class="grid grid-cols-12 border-2 border-yellow-500 rounded-b-xl">
+            <div class="col-span-12 flex justify-center p-2">
+                <h4 id="lpValorTotal">R$ 0/mês</h4>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="lpInssPatronal">R$ 0</p>
+                <p>INSS patronal</p>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="lpInss">R$ 0</p>
+                <p>INSS</p>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="lpImposto">R$ 0</p>
+                <p>Imposto</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- card4 -->
+
+    <section class="w-11/12 mt-3
+      lg:col-start-2 lg:mt-0">
+        <div
+                class="flex justify-center rounded-tr-xl rounded-tl-xl bg-yellow-well text-xl p-1"
+        >
+            <h3>Simples Anexo V</h3>
+        </div>
+        <div class="grid grid-cols-12 border-2 border-yellow-500 rounded-b-xl">
+            <div class="col-span-12 flex justify-center p-2">
+                <h4 id="a5ValorTotal">R$ 0/mês</h4>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="a5InssPatronal">R$ 0</p>
+                <p>INSS patronal</p>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="a5Inss">R$ 0</p>
+                <p>INSS</p>
+            </div>
+            <div class="col-span-12 flex justify-between ms-3 me-3 p-2">
+                <p id="a5Imposto">R$ 0</p>
+                <p>Imposto</p>
+            </div>
+        </div>
+    </section>
+</article>
+
+<article class="w-100 flex justify-center mt-12">
+    <h2 class="w-9/12 text-center">
+        Essa é uma simulação e para seu planejamento financeiro devem ser
+        considerados várias situações, procure um contador da sua confiança. Se
+        preferir entre em contato conosco que podemos te ajudar.
+    </h2>
+</article>
+
+
+<!-- Botao Economia -->
+
+<article class="w-100 flex justify-center mt-12">
+    <h2     id="dialogo-economia"
+            class="w-9/12 bg-yellow-well text-center p-3 rounded-md mt-3">Economia em 30 anos: R$ 0</h2>
+</article>
+
+<footer class="bg-gray-500 mt-12 flex flex-wrap
+    flex-col justify-center lg:flex-row lg:justify-around p-5">
+    <div class="flex justify-center mt-3">
+        <img
+                class="w-well mt-3"
+                src="https://saude.cassiocontabilidade.com/wp-content/uploads/2022/12/89741-1536x1536.png" alt="">
+    </div>
+
+    <div class="flex flex-col items-center mt-3 text-white">
+        <h2 class="text-2xl ">Contato</h2>
+         <br/>
+        <div class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope"
+                 viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+            </svg>
+            <p>comercial@cassiocontabilidade.com</p>
+        </div>
+        <div class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone"
+                 viewBox="0 0 16 16">
+                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+            </svg>
+            <p>(74) 99104-4265</p>
+        </div>
+    </div>
+    <div class="flex flex-col items-center mt-3 text-white">
+        <h2 class="text-2xl">Jurídico</h2>
+        <br/>
+        <p>CNPJ: 10.758.119/0001-81</p>
+        <p>CRC: 5541/O BA</p>
+    </div>
+</footer>
+<!-- https://contadr.com.br/wp-content/uploads/2021/05/Caculadora-INSS.png -->
+<!-- https://saude.cassiocontabilidade.com/wp-content/uploads/2022/12/89741-1536x1536.png -->
+</body>
+</html>
