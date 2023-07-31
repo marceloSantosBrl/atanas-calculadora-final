@@ -3,9 +3,35 @@ import {Simples_A3} from "./simples-a3.js";
 import {Lucro_Presumido} from "./lucro-presumido.mjs";
 import {simplesA5} from "./simples-a5.js";
 
+const receitaMensal = document.getElementById('receitaMensal')
+const proLabore = document.getElementById('proLabore')
+const salarioBrutoMensal = document.getElementById('salarioBrutoMensal')
+
+receitaMensal.addEventListener('keydown', (e) => {
+    console.log(e.key)
+    if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', ',', 'Backspace', 'Delete',
+        'ArrowRight', 'ArrowLeft'].includes(e.key)) {
+        e.preventDefault();
+    }
+})
+
+
+proLabore.addEventListener('keydown', (e) => {
+    if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', ',', 'Backspace', 'Delete',
+        'ArrowRight', 'ArrowLeft'].includes(e.key)) {
+        e.preventDefault();
+    }
+})
+
+salarioBrutoMensal.addEventListener('keydown', (e) => {
+    if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', ',', 'Backspace', 'Delete',
+        'ArrowRight', 'ArrowLeft'].includes(e.key)) {
+        e.preventDefault();
+    }
+})
 
 const getFormatedMoney = (value) => {
-    return value.toLocaleString('pt-BR','R$' +
+    return value.toLocaleString('pt-BR', 'R$' +
         {maximumFractionDigits: 2, minimumFractionDigits: 2});
 }
 
