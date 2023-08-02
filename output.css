@@ -964,3 +964,9 @@ input[type=number] {
   box-sizing: border-box;
   border-bottom:2px solid rgb(254, 185, 0)
 }
+
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  text-decoration: none;
+}
