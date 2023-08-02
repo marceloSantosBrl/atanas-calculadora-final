@@ -857,9 +857,8 @@ input:focus {
   border-radius: 4px;
   color: #495057;
   background-color: #fff;
-  border-color: #80bdff;
+  border-color: #0a0b0b;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 Chrome, Safari, Edge, Opera
@@ -959,4 +958,9 @@ input[type=number] {
 
 #imagem-contador {
   justify-self: center !important;
+}
+
+.border-bottom-amber {
+  box-sizing: border-box;
+  border-bottom:2px solid rgb(254, 185, 0)
 }

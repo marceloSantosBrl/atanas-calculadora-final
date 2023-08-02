@@ -27,7 +27,7 @@ salarioBrutoMensal.addEventListener('keydown', (e) => {
 })
 
 const getFormatedMoney = (value) => {
-    return value.toLocaleString('pt-BR', 'R$' +
+    return 'R$ ' + value.toLocaleString('pt-BR',
         {maximumFractionDigits: 2, minimumFractionDigits: 2});
 }
 
