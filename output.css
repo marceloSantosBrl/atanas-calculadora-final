@@ -951,6 +951,10 @@ input[type=number] {
 
 
 @media (min-width: 1024px) {
+  .lg-none{
+    display: none;
+  }
+
   #formulario {
     justify-self: start !important;
   }

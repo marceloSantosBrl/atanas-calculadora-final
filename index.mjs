@@ -93,11 +93,13 @@ formulario.addEventListener('submit', (event) => {
     a5Imposto.innerText = getFormatedMoney(a5Data.Imp_de_renda);
 
     const mensalidadeMaxima = Math.max(pfData.Total, a3Data.Total, lpData.Total, a5Data.Total);
-    const diferenca = mensalidadeMaxima - pfData.Total;
+    const mensalidadeMinima = Math.min(pfData.Total, a3Data.Total, lpData.Total, a5Data.Total);
+    const diferenca = mensalidadeMaxima - mensalidadeMinima;
 
     const economia = diferenca * 30 * 12;
 
     const dialogoEconomia = document.getElementById('dialogo-economia');
-    dialogoEconomia.innerText = 'Economia em 30 anos: R$ ' + economia.toLocaleString('pt-BR',
+    const economiaStringFormatada = economia.toLocaleString('pt-BR',
         {maximumFractionDigits: 2, minimumFractionDigits: 2});
+    dialogoEconomia.innerHTML = `Economia em 30 anos:<br class="lg-none"> R$ ${economiaStringFormatada}`
 })
