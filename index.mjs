@@ -63,6 +63,9 @@ formulario.addEventListener('submit', (event) => {
         data.push(entry[1])
     }
 
+    data[1] = data[1] === undefined ? 0 : data[1];
+    data[2] = data[2] === undefined ? 0 : data[2];
+
     let pfData = Pessoa_Fisica(data[0], data[1], data[2]);
 
     pfInssPatronal.innerText = getFormatedMoney(pfData.Inss_Patronal);
