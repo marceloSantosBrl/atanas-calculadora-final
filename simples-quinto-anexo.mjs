@@ -66,6 +66,14 @@ export class SimplesQuintoAnexo {
             - this.#obterDeducao(receitaBrutaAnual)) / 12
     }
 
+    /**
+     *
+     * @return {number}
+     */
+    obterReceitaAnual() {
+        return this.#receita.receitaMensal * 12;
+    }
+
     obterTotal() {
         return this.obterFgts() + this.obterInss() + this.obterContribuicaoSimples();
     }

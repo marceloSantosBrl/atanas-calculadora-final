@@ -58,6 +58,21 @@ const getFormatedMoney = (value) => {
         {maximumFractionDigits: 2, minimumFractionDigits: 2});
 }
 
+/**
+ *
+ * @param value
+ * @param {number} receitaAnual
+ * @return {string}
+ */
+const getSimplesFormatedMoney = (value, receitaAnual) => {
+    if (receitaAnual > 4_800_000) {
+        return 'Valor Fora dos Limites do Simples'
+    }
+    return 'R$ ' + value.toLocaleString('pt-BR',
+        {maximumFractionDigits: 2, minimumFractionDigits: 2});
+}
+
+
 let formulario = document.getElementById("formulario");
 
 let pfValorTotal = document.getElementById('pessoa-fisica-valor-total');
@@ -93,8 +108,7 @@ formulario.addEventListener('submit', (event) => {
     data[1] = data[1] === undefined ? 0 : data[1];
     data[2] = data[2] === undefined ? 0 : data[2];
 
-    if (data[0] < 0 || data[1] < 0 || data[2] < 0) {
-    }
+
 
     let receita = new Receita(data[0], data[1], data[2])
 
@@ -106,18 +120,26 @@ formulario.addEventListener('submit', (event) => {
 
     let simples3 = new SimplesTerceiroAnexo(receita);
 
-    simples3ValorTotal.innerText = getFormatedMoney(simples3.obterTotal());
-    simples3Inss.innerText = getFormatedMoney(simples3.obterInss());
-    simples3fgts.innerText = getFormatedMoney(simples3.obterFgts());
-    simples3Imposto.innerText = getFormatedMoney(simples3.obterContribuicaoSimples());
+    simples3ValorTotal.innerText = getSimplesFormatedMoney(simples3.obterTotal(),
+        simples3.obterReceitaAnual());
+    simples3Inss.innerText = getSimplesFormatedMoney(simples3.obterInss(),
+        simples3.obterReceitaAnual());
+    simples3fgts.innerText = getSimplesFormatedMoney(simples3.obterFgts(),
+        simples3.obterReceitaAnual());
+    simples3Imposto.innerText = getSimplesFormatedMoney(simples3.obterContribuicaoSimples(),
+        simples3.obterReceitaAnual());
 
 
     let simples5 = new SimplesQuintoAnexo(receita);
 
-    simples5ValorTotal.innerText = getFormatedMoney(simples5.obterTotal());
-    simples5Inss.innerText = getFormatedMoney(simples5.obterInss());
-    simples5Fgts.innerText = getFormatedMoney(simples5.obterFgts());
-    simples5Imposto.innerText = getFormatedMoney(simples5.obterContribuicaoSimples());
+    simples5ValorTotal.innerText = getSimplesFormatedMoney(simples5.obterTotal(),
+        simples5.obterReceitaAnual());
+    simples5Inss.innerText = getSimplesFormatedMoney(simples5.obterInss(),
+        simples5.obterReceitaAnual());
+    simples5Fgts.innerText = getSimplesFormatedMoney(simples5.obterFgts(),
+        simples5.obterReceitaAnual());
+    simples5Imposto.innerText = getSimplesFormatedMoney(simples5.obterContribuicaoSimples(),
+        simples5.obterReceitaAnual());
 
 
     let lucroPresumido = new LucroPresumido(receita);
