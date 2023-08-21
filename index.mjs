@@ -1,28 +1,55 @@
-import {Pessoa_Fisica} from "./pessoa-fisica.mjs";
-import {Simples_A3} from "./simples-a3.js";
-import {Lucro_Presumido} from "./lucro-presumido.mjs";
-import {simplesA5} from "./simples-a5.js";
+import {Receita} from "./receita.mjs";
+import {PessoaFisica} from "./pessoa-fisica.mjs";
+import {SimplesTerceiroAnexo} from "./simples-terceiro-anexo.mjs";
+import {LucroPresumido} from "./lucro-presumido.mjs";
+import {SimplesQuintoAnexo} from "./simples-quinto-anexo.mjs";
 
-const receitaMensal = document.getElementById('receitaMensal')
-const proLabore = document.getElementById('proLabore')
-const salarioBrutoMensal = document.getElementById('salarioBrutoMensal')
+const recebidoMensalmente = document.getElementById('valor-recebido-mensalmente-input')
+const pagoFuncionario = document.getElementById('valor-pago-funcionario-input')
+const retiradaMensal = document.getElementById('retirada-mensal-input')
 
-receitaMensal.addEventListener('keydown', (e) => {
+recebidoMensalmente.addEventListener('keydown', (e) => {
     if ([' '].includes(e.key)) {
         e.preventDefault();
     }
 })
 
+recebidoMensalmente.addEventListener('keyup', (e) => {
+    let numericContent = Number(recebidoMensalmente.value);
+    if (numericContent < 0) {
+        recebidoMensalmente.setCustomValidity('Número menor que zero não permitido');
+    } else {
+        recebidoMensalmente.setCustomValidity('');
+    }
+})
 
-proLabore.addEventListener('keydown', (e) => {
+pagoFuncionario.addEventListener('keydown', (e) => {
     if ([' '].includes(e.key)) {
         e.preventDefault();
     }
 })
 
-salarioBrutoMensal.addEventListener('keydown', (e) => {
+pagoFuncionario.addEventListener('keyup', (e) => {
+    let numericContent = Number(pagoFuncionario.value);
+    if (numericContent < 0) {
+        pagoFuncionario.setCustomValidity('Número menor que zero não permitido');
+    } else {
+        pagoFuncionario.setCustomValidity('');
+    }
+})
+
+retiradaMensal.addEventListener('keydown', (e) => {
     if ([' '].includes(e.key)) {
         e.preventDefault();
+    }
+})
+
+retiradaMensal.addEventListener('keyup', (e) => {
+    let numericContent = Number(retiradaMensal.value);
+    if (numericContent < 0) {
+        retiradaMensal.setCustomValidity('Número menor que zero não permitido');
+    } else {
+        retiradaMensal.setCustomValidity('');
     }
 })
 
@@ -33,70 +60,79 @@ const getFormatedMoney = (value) => {
 
 let formulario = document.getElementById("formulario");
 
-let pfValorTotal = document.getElementById('pfValorTotal');
-let pfInssPatronal = document.getElementById('pfInssPatronal');
-let pfInss = document.getElementById('pfInss');
-let pfImposto = document.getElementById('pfImposto');
+let pfValorTotal = document.getElementById('pessoa-fisica-valor-total');
+let pfInss = document.getElementById('pessoa-fisica-inss');
+let pfIRRF = document.getElementById('pessoa-fisica-irrf');
 
 
-let a3ValorTotal = document.getElementById('a3ValorTotal');
-let a3InssPatronal = document.getElementById('a3InssPatronal');
-let a3Inss = document.getElementById('a3Inss');
-let a3Imposto = document.getElementById('a3Imposto');
+let simples3ValorTotal = document.getElementById('simples-anexo-3-valor-total');
+let simples3Inss = document.getElementById('simples-anexo-3-inss');
+let simples3fgts = document.getElementById('simples-anexo-3-fgts');
+let simples3Imposto = document.getElementById('simples-anexo-3-imposto-simples');
 
-let lpValorTotal = document.getElementById('lpValorTotal');
-let lpInssPatronal = document.getElementById('lpInssPatronal');
-let lpInss = document.getElementById('lpInss');
-let lpImposto = document.getElementById('lpImposto');
+let lucroPresumidoValorTotal = document.getElementById('lucro-presumido-valor-total');
+let lucroPresumidoInss = document.getElementById('lucro-presumido-inss');
+let lucroPresumidoFgts = document.getElementById('lucro-presumido-fgts');
+let lucroPresumidoCpp = document.getElementById('lucro-presumido-cpp');
+let lucroPresumidoImposto = document.getElementById('lucro-presumido-imposto-lp');
 
 
-let a5ValorTotal = document.getElementById('a5ValorTotal');
-let a5InssPatronal = document.getElementById('a5InssPatronal');
-let a5Inss = document.getElementById('a5Inss');
-let a5Imposto = document.getElementById('a5Imposto');
+let simples5ValorTotal = document.getElementById('simples-anexo-5-valor-total');
+let simples5Inss = document.getElementById('simples-anexo-5-inss');
+let simples5Fgts = document.getElementById('simples-anexo-5-fgts');
+let simples5Imposto = document.getElementById('simples-anexo-5-imposto-simples');
 
 formulario.addEventListener('submit', (event) => {
     event.preventDefault();
     let formData = new FormData(formulario);
     let data = []
     for (let entry of formData.entries()) {
-        data.push(entry[1])
+        data.push(Number(entry[1]))
     }
 
     data[1] = data[1] === undefined ? 0 : data[1];
     data[2] = data[2] === undefined ? 0 : data[2];
 
-    let pfData = Pessoa_Fisica(data[0], data[1], data[2]);
+    if (data[0] < 0 || data[1] < 0 || data[2] < 0) {
+    }
 
-    pfInssPatronal.innerText = getFormatedMoney(pfData.Inss_Patronal);
-    pfValorTotal.innerText = getFormatedMoney(pfData.Total);
-    pfInss.innerText = getFormatedMoney(pfData.Inss);
-    pfImposto.innerText = getFormatedMoney(pfData.Imp_de_renda);
+    let receita = new Receita(data[0], data[1], data[2])
+
+    let pessoaFisica = new PessoaFisica(receita);
+
+    pfValorTotal.innerText = getFormatedMoney(pessoaFisica.obterTotal());
+    pfInss.innerText = getFormatedMoney(pessoaFisica.obterInss());
+    pfIRRF.innerText = getFormatedMoney(pessoaFisica.obterIRRF());
+
+    let simples3 = new SimplesTerceiroAnexo(receita);
+
+    simples3ValorTotal.innerText = getFormatedMoney(simples3.obterTotal());
+    simples3Inss.innerText = getFormatedMoney(simples3.obterInss());
+    simples3fgts.innerText = getFormatedMoney(simples3.obterFgts());
+    simples3Imposto.innerText = getFormatedMoney(simples3.obterContribuicaoSimples());
 
 
-    let a3Data = Simples_A3(data[0], data[1], data[2]);
+    let simples5 = new SimplesQuintoAnexo(receita);
 
-    a3InssPatronal.innerText = getFormatedMoney(a3Data.Inss_Patronal);
-    a3ValorTotal.innerText = getFormatedMoney(a3Data.Total);
-    a3Inss.innerText = getFormatedMoney(a3Data.Inss);
-    a3Imposto.innerText = getFormatedMoney(a3Data.Imp_de_renda);
+    simples5ValorTotal.innerText = getFormatedMoney(simples5.obterTotal());
+    simples5Inss.innerText = getFormatedMoney(simples5.obterInss());
+    simples5Fgts.innerText = getFormatedMoney(simples5.obterFgts());
+    simples5Imposto.innerText = getFormatedMoney(simples5.obterContribuicaoSimples());
 
-    let lpData = Lucro_Presumido(data[0], data[1], data[2]);
 
-    lpInssPatronal.innerText = getFormatedMoney(lpData.Inss_Patronal);
-    lpValorTotal.innerText = getFormatedMoney(lpData.Total);
-    lpInss.innerText = getFormatedMoney(lpData.Inss);
-    lpImposto.innerText = getFormatedMoney(lpData.Imp_de_renda);
+    let lucroPresumido = new LucroPresumido(receita);
+    lucroPresumidoValorTotal.innerText = getFormatedMoney(lucroPresumido.obterTotal());
+    lucroPresumidoInss.innerText = getFormatedMoney(lucroPresumido.obterInss());
+    lucroPresumidoFgts.innerText = getFormatedMoney(lucroPresumido.obterFgts());
+    lucroPresumidoCpp.innerText = getFormatedMoney(lucroPresumido.obterCPP());
+    lucroPresumidoImposto.innerText = getFormatedMoney(lucroPresumido.obterImpostoLP())
 
-    let a5Data = simplesA5(data[0], data[1], data[2]);
 
-    a5InssPatronal.innerText = getFormatedMoney(a5Data.Inss_Patronal);
-    a5ValorTotal.innerText = getFormatedMoney(a5Data.Total);
-    a5Inss.innerText = getFormatedMoney(a5Data.Inss);
-    a5Imposto.innerText = getFormatedMoney(a5Data.Imp_de_renda);
+    let valorTotalArray = [pessoaFisica.obterTotal(), simples3.obterTotal(),
+        simples5.obterTotal(), lucroPresumido.obterTotal()]
 
-    const mensalidadeMaxima = Math.max(pfData.Total, a3Data.Total, lpData.Total, a5Data.Total);
-    const mensalidadeMinima = Math.min(pfData.Total, a3Data.Total, lpData.Total, a5Data.Total);
+    const mensalidadeMaxima = Math.max(...valorTotalArray);
+    const mensalidadeMinima = Math.min(...valorTotalArray);
     const diferenca = mensalidadeMaxima - mensalidadeMinima;
 
     const economia = diferenca * 30 * 12;
