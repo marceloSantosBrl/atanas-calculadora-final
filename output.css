@@ -958,6 +958,10 @@ input[type=number] {
   #formulario {
     justify-self: start !important;
   }
+
+  .lg-items-start {
+    align-items: start;
+  }
 }
 
 #imagem-contador {
@@ -973,8 +977,4 @@ a.button {
   -webkit-appearance: button;
   -moz-appearance: button;
   text-decoration: none;
-}
-
-.items-start {
-  align-items: start;
 }
