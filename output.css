@@ -978,3 +978,115 @@ a.button {
   -moz-appearance: button;
   text-decoration: none;
 }
+
+.main-container {
+  outline: 1px solid red;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  object-fit: fill;
+  grid-area: logo;
+  place-self: center;
+  margin-bottom: 5rem;
+}
+
+.card-container {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #feb900;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  text-align: center;
+  display: grid;
+  grid-template-areas: "logo" "title" "form";
+  gap: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  grid-area: form;
+}
+
+.sub-form-input {
+  height: 3rem;
+  border-radius: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  grid-area: subtitle;
+}
+
+.sub-text {
+  font-size: 0.75rem;
+  grid-area: subtext;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.send-button {
+  width: auto;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  gap: 0.5rem;
+  background-color: green;
+  color: white;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  border: 0;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .card-container {
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: "logo title" "logo form" "logo subtitle" "logo subtext";
+  }
+}
+
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: rgb(0, 0, 0, 0);
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
