@@ -32,13 +32,8 @@ formularioContato.addEventListener('submit', e => {
     for (const pair of formData.entries()) {
         data[pair[0]] = pair[1];
     }
-    let link = document.createElement('link');
-    link.href = `mailto:comercial@cassiocontabilidade.com?
-    subject=Email Cliente Site 
-    &body= Nome:${data['nome']} Email:${data['email']} Telefone:${data['telefone']} Tipo:${data['tipo']}`;
-    link.click();
-    // console.log(link.href);
-    // console.log(data);
+    let mailto = `mailto:comercial@cassiocontabilidade.com?subject=Email Cliente Site&body= Nome:${data['nome']} Email:${data['email']} Telefone:${data['telefone']} Tipo:${data['tipo']}`;
+    window.open(mailto)
 })
 
 recebidoMensalmente.addEventListener('keyup', (e) => {
