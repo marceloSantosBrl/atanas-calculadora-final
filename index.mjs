@@ -14,6 +14,17 @@ recebidoMensalmente.addEventListener('keydown', (e) => {
     }
 })
 
+
+let modal = document.getElementById("modal");
+let modalContent = document.getElementById("modal-content");
+
+window.addEventListener('click', e => {
+    if (!modalContent.contains(e.target)) {
+        modal.style.display = 'none'
+    }
+})
+
+
 recebidoMensalmente.addEventListener('keyup', (e) => {
     let numericContent = Number(recebidoMensalmente.value);
     if (numericContent < 0) {
