@@ -24,6 +24,12 @@ window.addEventListener('click', e => {
     }
 })
 
+let formularioContato = document.getElementById('formulario-contato');
+formularioContato.addEventListener('submit', e => {
+    e.preventDefault();
+    let link = document.createElement('link');
+    link.href
+})
 
 recebidoMensalmente.addEventListener('keyup', (e) => {
     let numericContent = Number(recebidoMensalmente.value);
