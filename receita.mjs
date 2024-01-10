@@ -4,7 +4,7 @@ export class Receita {
     salarioFuncionario;
     retiradaMensal;
 
-    #pisoArray = [1320, 2571.29, 3856.94, 7507.49];
+    #pisoArray = [1412, 2571.29, 3856.94, 7507.49];
     #aliquotaArray = [0.075, 0.09, 0.12, 0.14];
 
     constructor(receitaMensal, salarioFuncionario, proLabore) {
