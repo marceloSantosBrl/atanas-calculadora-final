@@ -315,8 +315,7 @@
 
     <!-- Modal content -->
     <div class="modal-content" id="modal-content">
-        <div class="card-container">
-            <h1 class="title">CHEGOU O SEU MOMENTO!</h1>
+        <div class="card-container">           
             <form class="form" id="formulario-contato">
                 <input type="text" class="sub-form-input" placeholder="Digite o seu nome" name="nome" required/>
                 <input type="email" class="sub-form-input" placeholder="Digite o seu melhor email" name="email" required/>
@@ -327,6 +326,10 @@
                     <option value="Empresa de serviços">Empresa de serviços</option>
                     <option value="Estudantes contabilidade">Estudantes contabilidade</option>
                     <option value="Outros">Outros</option>
+                </select>
+                <select class="sub-form-input" name="tipo">
+                    <option value="Profissionais da saúde" selected>Abrir uma empresa</option>
+                    <option value="Empresa de comércio">Trocar de contador</option>
                 </select>
                 <div class="button-container">
                     <button class="send-button">
