@@ -16,7 +16,7 @@ recebidoMensalmente.addEventListener('keydown', (e) => {
 
 
 let modal = document.getElementById("modal");
-let modalContent = document.getElementById("modal-content");
+let modalContent = document.getElementById("card-container");
 
 window.addEventListener('click', e => {
     if (!modalContent.contains(e.target)) {
