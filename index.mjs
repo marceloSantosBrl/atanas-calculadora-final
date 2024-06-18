@@ -24,18 +24,7 @@ window.addEventListener('click', e => {
     }
 })
 
-let formularioContato = document.getElementById('formulario-contato');
-formularioContato.addEventListener('submit', e => {
-    e.preventDefault();
-    let formData = new FormData(formularioContato);
-    let data = {};
-    for (const pair of formData.entries()) {
-        data[pair[0]] = pair[1];
-    }
-    let mailto = `mailto:comercial@cassiocontabilidade.com?subject=Email Cliente Site&"body= Nome:${data['nome']} Email:${data['email']} Telefone:${data['telefone']} Tipo:${data['tipo']}"`;
-    window.open(mailto);
-    modal.style.display = 'none';
-})
+
 
 recebidoMensalmente.addEventListener('keyup', (e) => {
     let numericContent = Number(recebidoMensalmente.value);

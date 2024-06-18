@@ -1004,7 +1004,7 @@ a.button {
   grid-template-areas: "logo" "title" "form";
   gap: 0.25rem;
   width: clamp(18rem, 50%, 34rem);
-  height: 23rem;
+  height: 25.5rem;
 }
 
 .form {
